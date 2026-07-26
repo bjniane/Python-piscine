@@ -1,5 +1,6 @@
 from typing import Self
 
+
 class Plant:
 
     class _Stats:
@@ -33,7 +34,7 @@ class Plant:
         self._height = height
         self._plant_age = age
         self.initial_height = height
-        self._stats = Plant._Stats()
+        self._stats: Plant._Stats = Plant._Stats()
 
     @staticmethod
     def is_older_than_year(given_age: int) -> bool:
@@ -45,7 +46,7 @@ class Plant:
         name: str = "Unknown plant",
         height: float = 0.0,
         age: int = 0
-        ) -> Self:
+    ) -> Self:
         return cls(name, height, age)
 
     def get_age(self) -> int:
@@ -168,7 +169,7 @@ class Tree(Plant):
             ) -> None:
         super().__init__(name, height, age)
         self.trunk_diameter = trunk_diameter
-        self._stats = Tree._TreeStats()
+        self._stats: Tree._TreeStats = Tree._TreeStats()
 
     def show(self) -> str:
         return (
@@ -215,6 +216,7 @@ class Vegetable(Plant):
 def display_statistics(plant: Plant) -> None:
     print(f"[statistics for {plant.name.capitalize()}]")
     print(plant._stats.display())
+
 
 def main() -> None:
     print("=== Garden statistics ===")
